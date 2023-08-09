@@ -247,30 +247,32 @@ public class ScraperService {
     
     
     public String obtenerPrecioHeinekenLitro() {
-        String url = "https://www.carrefour.com.ar/cerveza-rubia-heineken-retornable-1-l/p";
+    	   String url = "https://diaonline.supermercadosdia.com.ar/cerveza-heineken-envase-retornable-1-lt-61144/p";
 
-        try {
-            Document document = Jsoup.connect(url).get();
+           try {
+               Document document = Jsoup.connect(url).get();
 
-            // Buscar el elemento que contiene el precio de la Heineken de litro
-            Element precioElement = document.selectFirst("span.valtech-carrefourar-product-price-0-x-currencyInteger");
+               // Buscar el elemento que contiene el precio de la Coca-Cola de 1.5 litros
+               Element precioElement = document.selectFirst("span.vtex-product-price-1-x-currencyInteger");
 
-            if (precioElement != null) {
-                String precio = precioElement.text().trim();
-                return precio;
-            } else {
-                System.out.println("No se encontró el precio de la Heineken de litro en Carrefour");
-                return null;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+               if (precioElement != null) {
+                   String precio = precioElement.text().trim();
+                   return precio;
+               } else {
+                   System.out.println("No se encontró el precio de la Coca-Cola de 1.5 litros en DIA");
+                   return null;
+               }
+           } catch (IOException e) {
+               e.printStackTrace();
+               return null;
+           }
     }
 
     
     public String obtenerPrecioCocaColaLitroYMedio() {
         String url = "https://diaonline.supermercadosdia.com.ar/gaseosa-coca-cola-sabor-original-15-lts-16861/p";
+        
+        https://diaonline.supermercadosdia.com.ar/cerveza-heineken-envase-retornable-1-lt-61144/p
 
         try {
             Document document = Jsoup.connect(url).get();
